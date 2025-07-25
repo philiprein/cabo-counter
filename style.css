@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'Bangers';
+  src: url(fonts/Bangers-Regular.ttf);
+}
+
+body {
+  background-color: #01a900;
+}
+
+h1,
+h4 {
+  font-family: 'Bangers', system-ui;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-text-stroke: 1px #fff904;
+  color: #fd0200;
+}
+
+.player {
+  background-color: #25c327;
+}
+
+.btn-cabo {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #fd0200;
+  --bs-btn-border-color: #fd0200;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #d60200;
+  --bs-btn-hover-border-color: #c10200;
+  --bs-btn-focus-shadow-rgb: 253, 2, 0;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #c10200;
+  --bs-btn-active-border-color: #a70100;
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #fd0200;
+  --bs-btn-disabled-border-color: #fd0200;
+}
+
+.table-cabo {
+  --bs-table-bg: #25c327;
+  --bs-table-striped-bg: rgba(0, 0, 0, 0.05); /* Adds subtle dark stripes */
+}
