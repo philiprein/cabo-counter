@@ -34,7 +34,7 @@
         <div
           id="playerList"
           class="row row-cols-2 row-cols-lg-5 g-3 g-lg-3 mb-3 justify-content-center">
-          <div class="col">Please add at least 2 players to start</div>
+          <div class="col-12">Please add at least 2 players to start</div>
         </div>
         <button id="startGameBtn" class="btn btn-cabo disabled">
           Start Game
@@ -53,9 +53,9 @@
         </table>
       </div>
       <div class="container-fluid mb-3 visually-hidden">
-        <form id="inputRoundForm" class="row g-3 justify-content-center">
+        <form id="inputRoundPointsForm" class="row g-3 justify-content-center">
           <div class="input-group col-auto">
-            <span class="input-group-text">Round 1</span>
+            <span class="input-group-text"></span>
           </div>
           <div class="col-auto">
             <button type="submit" class="btn btn-cabo">Finish Round</button>
@@ -80,7 +80,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">won!</h5>
+            <h5 class="modal-title">Game Over</h5>
             <button
               type="button"
               class="btn-close"
@@ -88,16 +88,17 @@
               aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>Congratulations player won!</p>
+            <p></p>
           </div>
           <div class="modal-footer">
             <button
+              id="editPlayersBtn"
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal">
               Edit Players
             </button>
-            <button type="button" class="btn btn-primary">
+            <button id="newGameBtn" type="button" class="btn btn-primary">
               Start New Game
             </button>
           </div>
