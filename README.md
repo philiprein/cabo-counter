@@ -1,3 +1,3 @@
 # cabo-counter
 
-This is single-page webapp designed to ease tracking the score the "Cabo" card game.
+Single-page web app designed to make it easier to track the score of the "Cabo" card game.

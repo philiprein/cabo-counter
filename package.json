@@ -1,0 +1,32 @@
+{
+  "name": "cabo-counter",
+  "version": "1.0.1",
+  "description": "Single-page web app designed to make it easier to track the score of the \"Cabo\" card game",
+  "homepage": "https://github.com/philiprein/cabo-counter#readme",
+  "bugs": {
+    "url": "https://github.com/philiprein/cabo-counter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philiprein/cabo-counter.git"
+  },
+  "license": "MIT",
+  "author": "Philip Reinhart",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve"
+  },
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.4",
+    "mini-css-extract-plugin": "^2.9.4",
+    "webpack": "^5.101.3",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  }
+}

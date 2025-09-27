@@ -1,23 +1,29 @@
 @font-face {
   font-family: 'Bangers';
-  src: url(fonts/Bangers-Regular.ttf);
+  src: url('../fonts/Bangers-Regular.ttf');
 }
 
 body {
   background-color: #01a900;
+  color: #fff;
 }
 
 h1,
 h4 {
   font-family: 'Bangers', system-ui;
   font-weight: 400;
-  font-style: normal;
   -webkit-text-stroke: 1px #fff904;
   color: #fd0200;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .player {
   background-color: #25c327;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  color: #fff;
 }
 
 .btn-cabo {
@@ -39,4 +45,5 @@ h4 {
 .table-cabo {
   --bs-table-bg: #25c327;
   --bs-table-striped-bg: rgba(0, 0, 0, 0.05); /* Adds subtle dark stripes */
+  --bs-table-color: #fff;
 }
