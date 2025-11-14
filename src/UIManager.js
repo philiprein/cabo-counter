@@ -207,6 +207,11 @@ class UIManager {
       // Disable edit players button
       this.editPlayersButton.disabled = true;
     }
+
+    // Adjust round number in newRoundForm
+    this.newRoundForm.querySelector('span').textContent = `Round ${
+      game.rounds.length + 1
+    }`;
   }
 
   resetScoreboard(players) {
@@ -232,6 +237,9 @@ class UIManager {
       const overallPoints = smalls[1];
       overallPoints.textContent = 'Points: 0';
     });
+
+    // Reset round number in newRoundForm
+    this.newRoundForm.querySelector('span').textContent = `Round 1`;
 
     // Enable edit players button
     this.editPlayersButton.disabled = false;
