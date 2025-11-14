@@ -149,11 +149,6 @@ class App {
       return;
     }
 
-    if (zeroPoints.length > 1) {
-      alert('Only one player can have 0 points');
-      return;
-    }
-
     // Add round to currentGame
     this._currentGame.addRound(round);
     Storage.saveCurrentGame(this._currentGame);
