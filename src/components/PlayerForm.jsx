@@ -6,6 +6,38 @@ const PlayerForm = ({ players, setPlayers }) => {
     playerName: '',
   });
 
+  const playerTitles = [
+    'Master of the Zero',
+    'Tactical Shuffler',
+    'Spying Menace',
+    'Professional Peeker',
+    'Card Curious',
+    'Silent Observer',
+    'Swap Saboteur',
+    'Card Contemplator',
+    'Deceptive Dealer',
+    'Cabo Conqueror',
+    'Forgetful Finder',
+    'Wrong Card Again',
+    'Accidental Genius',
+    'Still Peeking',
+    'Lucky Draw Club',
+    'Calculated Caller',
+    'Last‑Turn Legend',
+    'Zero or Bust',
+    'Swap Addict',
+    'Point Minimizer',
+    'Confused but Confident',
+    'Lucky Draw Club',
+    'Accidental Genius',
+    'Memory Monster',
+    'Scoreless Tyrant',
+    'No‑Look Cabo',
+    'Eyes Everywhere',
+    'Card Whisperer',
+    'Oops Wrong Card',
+  ];
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -25,6 +57,7 @@ const PlayerForm = ({ players, setPlayers }) => {
     const newPlayer = {
       id: Math.random().toString(16).slice(2),
       name: formData.playerName,
+      title: playerTitles[Math.floor(Math.random() * playerTitles.length)],
       points: 0,
       wins: 0,
       isPlaying: true,
@@ -43,7 +76,7 @@ const PlayerForm = ({ players, setPlayers }) => {
     <section className='mb-12'>
       <div className='max-w-2xl mx-auto'>
         <form onSubmit={handleSubmit}>
-          <div className='border-4 border-solid border-cabo-black shadow-[4px_4px_0_#002b00] p-2 rounded-xl flex items-center gap-2 bg-cabo-white'>
+          <div className='flex items-center gap-2 p-2 tactile-card'>
             <input
               name='playerName'
               value={formData.playerName}
@@ -56,9 +89,9 @@ const PlayerForm = ({ players, setPlayers }) => {
             />
             <button
               type='submit'
-              className='border-3 border-solid border-cabo-black shadow-[0_4px_0_#002b00] bg-cabo-green text-white px-8 py-3 font-black uppercase flex items-center gap-2 rounded-xl transition-all duration-100 ease-in-out active:shadow-[0_2px_0_#002b00] active:translate-y-[2px] cursor-pointer'>
+              className='px-8 py-3 flex items-center gap-2 tactile-btn font-black'>
               <FaUserPlus />
-              <span class='hidden sm:inline'>Add Player</span>
+              <span className='hidden sm:inline'>Add Player</span>
             </button>
           </div>
         </form>

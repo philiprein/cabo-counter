@@ -2,35 +2,30 @@ import Player from './Player';
 
 const PlayerList = ({ players, game, deletePlayer, updatePlayerStatus }) => {
   return (
-    <div className='container-lg text-center mb-4'>
-      <div className='row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 justify-content-center'>
-        {players.length > 0 ? (
-          game.inProgress ? (
-            players
-              .filter((player) => player.isPlaying)
-              .map((player) => (
-                <Player key={player.id} player={player} playing={true} />
-              ))
-          ) : (
-            players.map((player) => (
+    <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12 align-items-center'>
+      {game.inProgress
+        ? players
+            .filter((player) => player.isPlaying)
+            .sort((playerA, playerB) => playerA.points - playerB.points)
+            .map((player, index) => (
               <Player
                 key={player.id}
                 player={player}
-                playing={false}
-                deletePlayer={deletePlayer}
-                updatePlayerStatus={updatePlayerStatus}
+                playing={true}
+                position={index + 1}
+                last={players.length === index + 1}
               />
             ))
-          )
-        ) : (
-          <div>
-            <p className='text-nowrap opacity-50'>
-              Please add at least 2 players to start
-            </p>
-          </div>
-        )}
-      </div>
-    </div>
+        : players.map((player) => (
+            <Player
+              key={player.id}
+              player={player}
+              playing={false}
+              deletePlayer={deletePlayer}
+              updatePlayerStatus={updatePlayerStatus}
+            />
+          ))}
+    </section>
   );
 };
 

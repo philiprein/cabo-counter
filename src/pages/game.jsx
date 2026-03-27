@@ -64,7 +64,7 @@ const GamePage = ({
   };
 
   return (
-    <>
+    <main className='grow max-w-7xl mx-auto w-full px-6 py-10'>
       <PlayerList players={players} game={game} />
       <RoundsTable
         players={players.filter((player) => player.isPlaying)}
@@ -129,7 +129,7 @@ const GamePage = ({
           </div>
         </div>
       )}
-    </>
+    </main>
   );
 };
 
