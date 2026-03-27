@@ -10,7 +10,7 @@ const EditPlayersPage = ({
   startGame,
 }) => {
   return (
-    <>
+    <main className='grow max-w-7xl mx-auto w-full px-6 py-10'>
       <PlayerForm players={players} setPlayers={setPlayers} />
       <PlayerList
         players={players}
@@ -25,7 +25,7 @@ const EditPlayersPage = ({
           Start Game
         </button>
       </div>
-    </>
+    </main>
   );
 };
 

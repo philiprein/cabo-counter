@@ -1,51 +1,68 @@
-@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'tailwindcss';
 
 @font-face {
   font-family: 'Bangers';
-  src: url('assets/fonts/Bangers-Regular.ttf');
+  src: url('/fonts/Bangers-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/fonts/PlusJakartaSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/fonts/PlusJakartaSans-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/fonts/PlusJakartaSans-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-cabo-green: #01a900;
+  --color-cabo-red: #fd0200;
+  --color-cabo-yellow: #ffea00;
+  --color-cabo-white: #f0fff0;
+  --color-cabo-black: #002b00;
+  --font-title: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
 body {
-  background-color: #01a900;
-  color: #fff;
+  @apply bg-cabo-green;
+  background-image:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 20%
+    ),
+    radial-gradient(circle at 80% 50%, rgba(0, 0, 0, 0.05) 0%, transparent 25%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l15 30-15 30-15-30z' fill='%23018a00' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-attachment: fixed;
 }
 
-h1,
-h4 {
-  font-family: 'Bangers', system-ui;
-  font-weight: 400;
-  -webkit-text-stroke: 1px #fff904;
-  color: #fd0200;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.player {
-  background-color: #25c327;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  font-weight: 500;
-  color: #fff;
-}
-
-.btn-cabo {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #fd0200;
-  --bs-btn-border-color: #fd0200;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #d60200;
-  --bs-btn-hover-border-color: #c10200;
-  --bs-btn-focus-shadow-rgb: 253, 2, 0;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #c10200;
-  --bs-btn-active-border-color: #a70100;
-  --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #fd0200;
-  --bs-btn-disabled-border-color: #fd0200;
-}
-
-.table-cabo {
-  --bs-table-bg: #25c327;
-  --bs-table-striped-bg: rgba(0, 0, 0, 0.05); /* Adds subtle dark stripes */
-  --bs-table-color: #fff;
+.cabo-title {
+  @apply text-cabo-red;
+  @apply font-extrabold;
+  @apply uppercase;
+  text-shadow:
+    -2px -2px 0 #ffea00,
+    2px -2px 0 #ffea00,
+    -2px 2px 0 #ffea00,
+    2px 2px 0 #ffea00,
+    4px 4px 0 rgba(0, 0, 0, 0.15);
 }
