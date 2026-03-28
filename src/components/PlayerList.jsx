@@ -1,11 +1,12 @@
 import Player from './Player';
 
 const PlayerList = ({ players, game, deletePlayer, updatePlayerStatus }) => {
+  const playersPlaying = players.filter((player) => player.isPlaying);
+
   return (
-    <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12 align-items-center'>
+    <section className='grid grid-cols-2 md:grid-cols-3 gap-8 mb-12 align-items-center'>
       {game.inProgress
-        ? players
-            .filter((player) => player.isPlaying)
+        ? playersPlaying
             .sort((playerA, playerB) => playerA.points - playerB.points)
             .map((player, index) => (
               <Player
@@ -13,7 +14,7 @@ const PlayerList = ({ players, game, deletePlayer, updatePlayerStatus }) => {
                 player={player}
                 playing={true}
                 position={index + 1}
-                last={players.length === index + 1}
+                last={playersPlaying.length === index + 1}
               />
             ))
         : players.map((player) => (

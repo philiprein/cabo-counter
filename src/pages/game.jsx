@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router';
+import { FaUsers, FaUndo } from 'react-icons/fa';
 
 import PlayerList from '../components/PlayerList';
 import RoundForm from '../components/RoundForm';
@@ -80,49 +81,48 @@ const GamePage = ({
         setShowModal={setShowModal}
       />
       {showModal && (
-        <div
-          className='modal show d-block'
-          tabIndex='-1'
-          style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
-          data-bs-backdrop='static'
-          data-bs-keyboard='false'>
-          <div className='modal-dialog modal-dialog-centered'>
-            <div className='modal-content rounded-3 shadow'>
-              <div className='modal-header'>
-                <h5 className='modal-title'>Game Over</h5>
-                <button
-                  type='button'
-                  className='btn-close'
-                  data-bs-dismiss='modal'
-                  aria-label='Close'></button>
+        <div className='fixed inset-0 z-100 flex items-center justify-center p-4 bg-cabo-black/40 backdrop-blur-sm'>
+          <div className='relative max-w-2xl tactile-card bg-cabo-green overflow-hidden rounded-3xl'>
+            <div className='relative pt-4 pb-2 px-3 text-center'>
+              <div className='mb-8'>
+                <span className='text-4xl md:text-7xl cabo-title'>
+                  We have a winner!
+                </span>
               </div>
-              <div className='modal-body'>
-                <p>
-                  Congratulations!&nbsp;
-                  <strong>
+              <div class='relative inline-block mb-10'>
+                <div className='p-6 tactile-card'>
+                  <h3 className='font-title text-4xl font-black text-cabo-black uppercase mb-1'>
                     {
-                      players.reduce((min, player) =>
-                        player.points < min.points ? player : min,
-                      ).name
+                      players
+                        .filter((player) => player.isPlaying)
+                        .reduce((min, player) =>
+                          player.points < min.points ? player : min,
+                        ).name
                     }
-                  </strong>
-                  &nbsp;won!
-                </p>
+                  </h3>
+                  <p className='text-xs font-black text-cabo-black/50 uppercase'>
+                    {
+                      players
+                        .filter((player) => player.isPlaying)
+                        .reduce((min, player) =>
+                          player.points < min.points ? player : min,
+                        ).title
+                    }
+                  </p>
+                </div>
               </div>
-              <div className='modal-footer'>
+              <div class='flex gap-4 justify-evenly'>
                 <button
-                  type='button'
-                  className='btn btn-secondary'
-                  data-bs-dismiss='modal'
+                  className='px-8 py-3 gap-3 mb-3 flex items-center tactile-btn bg-cabo-red'
                   onClick={handleEditPlayers}>
+                  <FaUsers />
                   Edit Players
                 </button>
                 <button
-                  id='new-game-button'
-                  type='button'
-                  className='btn btn-cabo'
+                  className='px-8 py-3 gap-3 mb-3 flex items-center tactile-btn bg-cabo-red'
                   onClick={handleResetGame}>
-                  Start New Game
+                  <FaUndo />
+                  Reset Game
                 </button>
               </div>
             </div>

@@ -55,7 +55,7 @@ const App = () => {
   };
 
   return (
-    <div className='min-h-screen font-body'>
+    <>
       <Header />
       <Routes>
         <Route
@@ -96,7 +96,7 @@ const App = () => {
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
       <Footer />
-    </div>
+    </>
   );
 };
 

@@ -33,7 +33,7 @@ const RoundsTable = ({ game, players }) => {
                     </td>
                     {Object.entries(round).map(([playerId, points]) => (
                       <td
-                        className='px-6 py-4 font-black text-xl'
+                        className={`px-6 py-4 font-black ${points === 0 ? 'text-2xl text-cabo-green underline decoration-4 underline-offset-4' : 'text-xl text-cabo-black'}`}
                         key={playerId}>
                         {points}
                       </td>

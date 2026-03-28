@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaPlus, FaUsers, FaUndo } from 'react-icons/fa';
 
 const RoundForm = ({
   players,
@@ -100,45 +101,57 @@ const RoundForm = ({
   };
 
   return (
-    <div className='container mb-4'>
-      <form id='round-form' className='mb-2' onSubmit={handleSubmit}>
-        <div className='input-group col-auto'>
-          <span className='input-group-text'>
-            Round {game.rounds.length + 1}
-          </span>
-          {players.map((player) => (
-            <input
-              key={player.id}
-              name={player.id}
-              value={formData[player.id]}
-              type='number'
-              min='0'
-              max='50'
-              className='form-control'
-              placeholder={`${player.name}'s points`}
-              onChange={handleChange}
-            />
-          ))}
-        </div>
-      </form>
-      <div className='col d-flex justify-content-between'>
-        <div>
-          <button type='submit' form='round-form' className='btn btn-cabo'>
-            Finish Round
-          </button>
-        </div>
-        <div>
+    <section className='max-w-7xl mx-auto'>
+      <div className='tactile-card p-6 rounded-2xl bg-white border-cabo-black mb-4'>
+        <form
+          id='round-form'
+          className='flex flex-col md:flex-row items-center gap-6'
+          onSubmit={handleSubmit}>
+          <div
+            class={`flex-1 grid grid-cols-2 md:grid-cols-${players.length > 4 ? '4' : players.length} gap-4 w-full`}>
+            {players.map((player) => (
+              <div className='space-y-1'>
+                <label className='block text-xs font-black text-cabo-black uppercase ml-1'>
+                  {player.name}
+                </label>
+                <input
+                  key={player.id}
+                  name={player.id}
+                  value={formData[player.id]}
+                  type='number'
+                  min='0'
+                  max='50'
+                  className='w-full bg-cabo-green-shade border-2 border-cabo-black rounded-xl p-4 text-2xl font-black focus:ring-2 focus:ring-cabo-green focus:border-cabo-green focus:bg-white transition-all outline-none'
+                  placeholder='0'
+                  onChange={handleChange}
+                />
+              </div>
+            ))}
+          </div>
           <button
-            className={`btn btn-cabo me-2 ${game.rounds.length > 0 && 'disabled'}`}
-            onClick={handleEditPlayers}>
-            Edit Players
+            className='w-full md:w-auto h-20 px-8 py-3 flex items-center justify-center gap-3 text-xl tactile-btn font-black'
+            type='submit'>
+            <FaPlus />
+            Add Round
           </button>
-          <button className='btn btn-cabo' onClick={handleResetGame}>
-            Reset Game
-          </button>
-        </div>
+        </form>
       </div>
-    </div>
+      <div className='flex justify-between'>
+        <button
+          className={`px-8 py-3 gap-3 mb-3 flex items-center tactile-btn ${game.rounds.length > 0 ? 'bg-cabo-red/60' : 'bg-cabo-red'}`}
+          onClick={handleEditPlayers}
+          disabled={game.rounds.length > 0}>
+          <FaUsers />
+          Edit Players
+        </button>
+        <button
+          className='px-8 py-3 gap-3 mb-3 flex items-center tactile-btn bg-cabo-red'
+          onClick={handleResetGame}>
+          <FaUndo />
+          Reset Game
+        </button>
+      </div>
+    </section>
   );
 };
 
