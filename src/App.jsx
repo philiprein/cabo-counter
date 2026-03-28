@@ -55,7 +55,7 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className='flex flex-col min-h-screen'>
       <Header />
       <Routes>
         <Route
@@ -96,7 +96,7 @@ const App = () => {
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 };
 
